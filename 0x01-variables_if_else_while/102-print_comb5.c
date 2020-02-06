@@ -15,10 +15,12 @@ int main(void)
 	{
 		for (j = 48; j < 58; ++j)
 		{
-			for (k = 48; k < 58; ++k)
+			for (k = i; k < 58; ++k)
 			{
-				for (l = 48; l < 58; ++l)
+				for (l = j; l < 58; ++l)
 				{
+					if (i != k && j != l)
+					{
 					putchar(i);
 					putchar(j);
 					putchar(' ');
@@ -30,6 +32,7 @@ int main(void)
 					}
 					putchar(',');
 					putchar(' ');
+					}
 				}
 			}
 		}
