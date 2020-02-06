@@ -9,6 +9,7 @@ int main(void)
 	/* Declarations */
 	int i;
 	int j;
+	int k;
 
 	for (i = 48; i <= 57; i++)
 	{
@@ -16,13 +17,20 @@ int main(void)
 		{
 			if (i != j)
 			{
-				putchar(i);
-				putchar(j);
-				if (i == 56 && j == 57)
-					break;
-				putchar(',');
-				putchar(' ');
-
+				for (k = j; k <= 57; k++)
+				{
+					if (j != k)
+					{
+						putchar(i);
+						putchar(j);
+						putchar(k);
+						if (!(i == 55 && j == 56 && k == 57))
+						{
+							putchar(',');
+							putchar(' ');
+						}
+					}
+				}
 			}
 		}
 	}
