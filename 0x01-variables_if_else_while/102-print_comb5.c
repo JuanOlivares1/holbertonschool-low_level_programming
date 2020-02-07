@@ -15,12 +15,18 @@ int main(void)
 	{
 		for (j = 48; j < 58; ++j)
 		{
-			for (k = i; k < 58; ++k)
+			for (k = 48; k < 58; ++k)
 			{
-				for (l = j; l < 58; ++l)
+				for (l = 48; l < 58; ++l)
 				{
 					if (!(i == k && j == l))
 					{
+					if (k >= i)
+					{
+					while (k == i && l <= j)
+					{
+						l++;
+					}
 					putchar(i);
 					putchar(j);
 					putchar(' ');
@@ -28,10 +34,11 @@ int main(void)
 					putchar(l);
 					if (i == 57 && j == 56 && k == 57 && l == 57)
 					{
-						breack;
+						break;
 					}
 					putchar(',');
 					putchar(' ');
+					}
 					}
 				}
 			}
