@@ -19,14 +19,14 @@ int main(void)
 			{
 				for (l = 48; l < 58; ++l)
 				{
-					if (!(i == k && j == l))
-					{
 					if (k >= i)
 					{
 					while (k == i && l <= j)
 					{
 						l++;
 					}
+					if (!(i == k && j == l))
+					{
 					putchar(i);
 					putchar(j);
 					putchar(' ');
