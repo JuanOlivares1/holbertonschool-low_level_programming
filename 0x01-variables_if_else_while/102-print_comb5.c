@@ -21,7 +21,7 @@ int main(void)
 				{
 					if (k >= i)
 					{
-					while (k == i && l <= j)
+					while (k == i && l < j)
 					{
 						l++;
 					}
@@ -32,10 +32,9 @@ int main(void)
 					putchar(' ');
 					putchar(k);
 					putchar(l);
-					if (i == 57 && j == 56 && k == 57 && l == 57)
+					if (i == 57 && j == 56 && k == 57)
 					{
-						putchar('\n');
-						return (0);
+						break;
 					}
 					putchar(',');
 					putchar(' ');
@@ -45,5 +44,6 @@ int main(void)
 			}
 		}
 	}
+	putchar('\n');
 	return (0);
 }
