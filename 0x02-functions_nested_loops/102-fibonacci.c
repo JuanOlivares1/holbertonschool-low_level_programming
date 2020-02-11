@@ -11,6 +11,7 @@ int main(void)
 
 	num1 = 1;
 	num2 = 2;
+	count = 3:
 
 	printf("%i", num1);
 	printf(", ");
