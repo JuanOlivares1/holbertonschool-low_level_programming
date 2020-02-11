@@ -6,11 +6,17 @@
  */
 void jack_bauer(void)
 {
-	int i, j, k, l;
+	int i, j, k, l, x;
+
+	x = 57;
 
 	for (i = 48; i <= 50 ; i++)
 	{
-	       	for (j = 48; j <= 57; j++)
+		if (i == 50)
+		{
+			x = 51;
+		}
+		for (j = 48; j <= x; j++)
 		{
 			for (k = 48; k < 54; k++)
 			{
