@@ -11,16 +11,16 @@ int main(void)
 
 	num1 = 1;
 	num2 = 2;
-	count = 3:
+	count = 2;
 
 	printf("%i", num1);
 	printf(", ");
 	printf("%i", num2);
 
-	while(count <= 50)
+	while (count <= 50)
 	{
 		if (count <= 50)
-                        printf(", ");
+			printf(", ");
 		tmp = num1;
 		num1 = num2;
 		num2 = tmp + num1;
