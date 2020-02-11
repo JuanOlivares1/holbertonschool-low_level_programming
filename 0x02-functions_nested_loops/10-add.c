@@ -1,7 +1,8 @@
 #include "holberton.h"
 /**
  * add - Adds the two arguments parameters.
- * @a, @b: the two integers to add.
+ * @a: first integer to add.
+ * @b: second integer to add.
  *
  * Return: The result of operation.
 */
