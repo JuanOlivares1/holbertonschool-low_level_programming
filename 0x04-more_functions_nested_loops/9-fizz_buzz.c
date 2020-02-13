@@ -18,8 +18,7 @@ int main(void)
 			printf("Buzz");
 		else
 			printf("%d", i);
-		putchar(' ');
+		putchar('\n');
 	}
-	putchar('\n');
 	return (0);
 }
