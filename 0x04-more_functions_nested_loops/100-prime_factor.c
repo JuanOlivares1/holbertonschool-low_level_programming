@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <math.h>
-/*
- * max_prime - Finds the max prime factor
- * @n: Number to find its prime factor
+/**
+ * main - prime numbers.
  *
- * Return: Max prime factor from n
+ * Return: Always 0.
  */
-long max_prime(long n)
+int main(void)
 {
-	long prime;
+	unsigned long n, prime;
 	int i;
+
+	n = 612852475143;
 
 	while (n % 2 == 0)
 	{
@@ -28,21 +29,7 @@ long max_prime(long n)
 	if (n > 2)
 		prime = n;
 
-	return (prime);
-}
-
-/*
- * main - main function
- *
- * Return: Always 0
- */
-int main(void)
-{
-	long n;
-
-	n = 612852475143;
-
-	printf("%li\n", max_prime(n));
+	printf("%lu\n", prime);
 
 	return (0);
 }
