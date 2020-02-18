@@ -1,10 +1,11 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
- * _strcpy - copy a string from dest to src.
- * @dest: pointer to destination string
- * @src: pointer to source string
+ * _strcpy - prints number of elements given of an array.
+ * @dest: string to print
+ * @src: number of elements to print
  *
- * Returns: char * . Pointer of the destination.
+ * Returns: char *
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -12,9 +13,9 @@ char *_strcpy(char *dest, char *src)
 
 	while (1)
 	{
+		dest[i] = src[i];
 		if (src[i] == '\0')
 			break;
-		dest[i] = src[i];
 		i++;
 	}
 
