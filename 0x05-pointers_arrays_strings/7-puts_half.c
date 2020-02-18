@@ -13,7 +13,7 @@ void puts_half(char *str)
 		count++;
 
 	if (count % 2 == 1)
-		n = (count + 1) / 2;
+		n = ((count - 1) / 2) + 1;
 	else
 		n = count / 2;
 
