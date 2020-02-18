@@ -5,7 +5,7 @@
  * @dest: string to print
  * @src: number of elements to print
  *
- * Returns: char *
+ * Return: char *
  */
 char *_strcpy(char *dest, char *src)
 {
