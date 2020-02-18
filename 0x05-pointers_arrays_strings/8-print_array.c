@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * puts_array - prints number of elements given of an array.
+ * print_array - prints number of elements given of an array.
  * @a: string to print
  * @n: number of elements to print
  *
