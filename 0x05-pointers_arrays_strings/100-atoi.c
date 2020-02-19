@@ -24,8 +24,10 @@ int _atoi(char *s)
 			lnp = i;
 			if (fnp == -1)
 				fnp = i;
-		} if ((s[i] < '0' && s[i] > '9') && lnp != -1)
-			  break;
+		}
+
+		if ((s[i] < '0' || s[i] > '9') && lnp != -1)
+			break;
 	}
 
 	if (fnp == -1)/*if the string doesn't have a number return '0'*/
