@@ -8,7 +8,7 @@
  */
 int _atoi(char *s)
 {
-	int i, len, fnp, lnp, num, sign;
+	int i, len, fnp, lnp, num, igsign;
 
 	for (i = 0; s[i] != '\0'; i++)/*in the end of loop i = string length*/
 		;
@@ -16,7 +16,8 @@ int _atoi(char *s)
 	len = i;
 	fnp = -1;
 	lnp = -1;
-	sign = 0;
+	num = 0;
+	igsign = 0;
 
 	for (i = 0; i <= len; i++) /*catching the first and last position of number*/
 	{
@@ -29,9 +30,10 @@ int _atoi(char *s)
 
 		if ((s[i] < '0' || s[i] > '9') && lnp != -1)
 		{
-			sign = 2;
+			igsign = 1;
 			break;
 		}
+
 	}
 
 	if (fnp == -1)/*if the string doesn't have a number return '0'*/
@@ -42,12 +44,12 @@ int _atoi(char *s)
 		num = num * 10 + s[i] - '0';
 	}
 
-	if (sign == 2)
-		return (num);
-	else if (s[fnp - 1] == '-')/*knowing if the number will be positive or negative*/
-		num *= -1;
-	else if (s[fnp - 1] == '+')
-		num *= 1;
-
+	if (igsign == 0)
+	{
+		if (s[fnp - 1] == '-')/*knowing if the number will be positive or negative*/
+			num *= -1;
+		else if (s[fnp - 1] == '+')
+			num *= 1;
+	}
 	return (num);
 }
