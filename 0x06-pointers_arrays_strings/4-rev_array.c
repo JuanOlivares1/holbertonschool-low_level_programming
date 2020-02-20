@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * rev_array - reverse an int array.
+ * reverse_array - reverse an int array.
  * @a: array to revert
  * @n: number of elements in array
  *
