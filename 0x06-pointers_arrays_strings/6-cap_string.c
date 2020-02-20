@@ -32,6 +32,9 @@ char *cap_string(char *s)
 			{
 				s[j + 1] -= 32;
 			}
+		} else if (j == 0 && (s[j] >= 'a' && s[j] <= 'z'))
+		{
+			s[j] -= 32;
 		}
 	}
 	return (s);
