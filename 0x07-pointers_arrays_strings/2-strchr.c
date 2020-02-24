@@ -11,9 +11,9 @@ char *_strchr(char *s, char c)
 	int i;
 	char *p = '\0';
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i]; ++i)
 	{
-		if (s[i] == c && c != '\0')
+		if (s[i] == c)
 		{
 			p = &s[i];
 			break;
