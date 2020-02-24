@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * _strpbrk - searches for any of a set of bytes
+ * _strstr - searches for a substring on a string
  * @haystack: string to compare
  * @needle: substring with the characters to match
  *
@@ -26,7 +26,7 @@ char *_strstr(char *haystack, char *needle)
 				}
 				k++;
 			}
-			if (f == 0)
+			if (f != 1)
 			{
 				p = &haystack[i];
 				break;
