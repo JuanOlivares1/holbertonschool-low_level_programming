@@ -11,37 +11,29 @@
  */
 int main(int argc, char **argv)
 {
-	int i, j, cent = atoi(argv[1]), coins = 0, tmp;
+	int i, j, cent, coins = 0, tmp;
 	int denom[6] = {25, 10, 5, 2, 1};
 
-	if (argc != 2)
+	if (argc != 2) /* if there is more or less than 1 argument */
 	{
 		printf("Error\n");
 		return (1);
-	} else if (cent < 0)
+	}
+
+	cent = atoi(argv[1]);
+
+	if (cent <= 0) /* if the argument is negative */
 	{
 		printf("0\n");
 		return (0);
 	}
 
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j]; j++)
-		{
-			if (argv[i][j] < '0' || argv[i][j] > '9')
-			{
-				printf("Error\n");
-				return (1);
-			}
-		}
-	}
-
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < 5; i++) /* calculating number of coins */
 	{
 		tmp = 0;
 		if (cent > 0)
 		{
-			if (cent / denom[i] >= 1)
+			if (cent / denom[i])
 			{
 				coins += cent / denom[i];
 				tmp = cent / denom[i];
@@ -49,6 +41,6 @@ int main(int argc, char **argv)
 			}
 		}
 	}
-	printf("%i\n", coins);
+	printf("%i\n", coins); /* printing result on console */
 	return (0);
 }
