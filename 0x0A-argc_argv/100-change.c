@@ -11,7 +11,7 @@
  */
 int main(int argc, char **argv)
 {
-	int i, cent = atoi(argv[1]), coins = 0, tmp;
+	int i, j, cent = atoi(argv[1]), coins = 0, tmp;
 	int denom[6] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
@@ -22,6 +22,18 @@ int main(int argc, char **argv)
 	{
 		printf("0\n");
 		return (0);
+	}
+
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j]; j++)
+		{
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
 	}
 
 	for (i = 0; i < 5; i++)
