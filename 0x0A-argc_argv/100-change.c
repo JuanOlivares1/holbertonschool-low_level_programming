@@ -11,7 +11,7 @@
  */
 int main(int argc, char **argv)
 {
-	int i, j, cent, coins = 0, tmp;
+	int i, cent, coins = 0, tmp;
 	int denom[6] = {25, 10, 5, 2, 1};
 
 	if (argc != 2) /* if there is more or less than 1 argument */
