@@ -1,8 +1,10 @@
 #include <stdio.h>
 /**
- * main -
+ * main - prints
+ * @argc: number of arguments
+ * @argv: pointer to an array of pointers (strings of arguments)
  *
- * Return: always 0. Success
+ * Return: 0 succes, 1 fail
  */
 int main(int argc __attribute__((unused)), char **argv)
 {
