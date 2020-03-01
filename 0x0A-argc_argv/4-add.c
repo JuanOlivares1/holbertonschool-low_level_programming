@@ -22,7 +22,11 @@ int main(int argc, char **argv)
 	{
 		av = atoi(argv[i]);
 
-		if (*argv[i] < '0' || *argv[i] > '9')
+		if ((*argv[i] < '0' || *argv[i] > '9') && av < 0)
+		{
+			printf("Error\n");
+			return (1);
+		} else if (*argv[i] < '0' || *argv[i] > '9')
 		{
 			printf("Error\n");
 			return (1);
