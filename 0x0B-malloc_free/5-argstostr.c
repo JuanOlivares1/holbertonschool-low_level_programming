@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * args_len - returns the length of a string
+ * @s: string
+ *
+ * Return: length of arg
+ */
 int args_len(char *s)
 {
 	int i;
