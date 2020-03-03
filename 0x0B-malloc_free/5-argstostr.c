@@ -1,7 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
-
 /**
  * args_len - returns the length of a string
  * @s: string
@@ -14,7 +12,6 @@ int args_len(char *s)
 
 	for (i = 0; s[i]; i++)
 		;
-
 	return (i);
 }
 
@@ -38,7 +35,7 @@ char *argstostr(int ac, char **av)
 		chars += args_len(av[i]);
 	}
 
-	p = malloc(sizeof(chars) * (chars + ac));
+	p = malloc(chars + ac);
 	if (p == NULL)
 	{
 		free(p);
@@ -56,6 +53,6 @@ char *argstostr(int ac, char **av)
 		p[k] = '\n';
 		k++;
 	}
-
+	p[k] = '\0';
 	return (p);
 }
