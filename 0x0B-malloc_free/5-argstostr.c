@@ -40,7 +40,10 @@ char *argstostr(int ac, char **av)
 
 	p = malloc(sizeof(chars) * (chars + ac));
 	if (p == NULL)
+	{
+		free(p);
 		return (NULL);
+	}
 
 	k = 0;
 	for (i = 0; i < ac; i++)
