@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * _strdup - copy a tring and stores it on a new memory allocation
+ * _strdup - copy a string and stores it on a newlly memory allocation
  * @str: string to copy
  *
  * Return: pointer to array.
@@ -19,7 +19,7 @@ char *_strdup(char *str)
 
 	size = i;
 
-	p = malloc(i);
+	p = malloc(size + 1);
 
 	if (p == NULL)
 		return (NULL);
