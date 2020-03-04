@@ -30,12 +30,12 @@ char *argstostr(int ac, char **av)
 	if (ac <= 0 || av == NULL)
 		return (NULL);
 
-	for (i = 0; av[i]; i++)
+	for (i = 0; i < ac ; i++)
 	{
 		chars += args_len(av[i]);
 	}
 
-	p = malloc(chars + ac);
+	p = malloc(chars + ac + 1);
 	if (p == NULL)
 	{
 		free(p);
