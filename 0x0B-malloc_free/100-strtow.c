@@ -1,6 +1,32 @@
 #include "holberton.h"
 #include <stdlib.h>
 #include <stdio.h>
+
+int count_words(char *s)
+{
+	int i, count;
+
+	for (i = 1; s[i]; i++)
+        {
+                if (s[i] != ' ' && s[i + 1] == ' ')
+                        count++;
+        }
+	return (count);
+}
+
+int count_chars(char *c)
+{
+	int i, count;
+
+	for (i = 0; c[i]; i++)
+	{
+		if (c[i] == ' ')
+			break;
+		count++;
+	}
+	return (count);
+}
+
 /**
  * strtow - split a string into words
  * @str: pointer to a tring
@@ -9,42 +35,36 @@
  */
 char **strtow(char *str)
 {
-	int i, j, w = 0, f = 0, count_words = 0, count_chars = 0;
+	int i, j, w = 0, words, chars;
 	char **p;
 
 	if (str == NULL)
 		return (NULL);
-	for (i = 1; str[i]; i++)
+
+	words = count_words(str);
+
+	p = malloc(sizeof(char *) * words + 1);
+
+
+
+	for (i = 0; i < words ; i++)
 	{
-		if (str[i] != ' ' && str[i + 1] == ' ')
-			count_words++;
-	}
-	p = malloc(sizeof(char *) * count_words + 1);
-	for (i = 0; i < count_words ; i++)
-	{
-		count_chars = 1;
-		f = 0;
 		for (j = w; str[j]; j++)
 		{
-			if (str[j] == ' ' && f == 0)
+			if (str[j] == ' ')
 				continue;
-			else if (str[i] == ' ' && f == 1)
-				break;
-			if (str[j] != ' ')
+		        if (str[j] != ' ')
 			{
-				count_chars++;
-				w = j;
-				f = 1;
+				chars = count_chars(str + j);
+				printf("%i", chars);
+				w = j + chars;
 			}
 		}
-		if (f == 1)
+		p[i] = malloc(sizeof(char) * chars);
+		if (p[i] == NULL)
 		{
-			p[i] = malloc(sizeof(char) * count_chars);
-			if (p[i] == NULL)
-			{
-				free(p[i]);
-				return (NULL);
-			}
+			free(p[i]);
+			return (NULL);
 		}
 	}
 	return (p);
