@@ -1,19 +1,22 @@
 #include <stdlib.h>
 #include "holberton.h"
 /**
- * _calloc - allocates memory for an array
+ * _calloc - concatenates 2 strings
  * @nmemb: pointer to first string
  * @size: pointer to second string
  *
- * Return: void pointer to mem allocation
+ * Return: pointer to new string
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *p;
+	int i;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
 
 	p = malloc(nmemb * size);
-
-	if (nmemb == 0 || size == 0 || p == NULL)
+	if (p == NULL)
 	{
 		free(p);
 		return (NULL);
@@ -21,6 +24,5 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	for (i = 0; i < nmemb; i++)
 		p[i] = 0;
-
 	return (p);
 }
