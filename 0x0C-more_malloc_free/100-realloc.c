@@ -1,17 +1,6 @@
 #include <stdlib.h>
 #include "holberton.h"
 /**
- * _free_ifnull - if malloc fails return NULL
- * @p: pointer to malloc
- *
- * Return: null
- */
-void _free_ifnull(char *p)
-{
-	if (p == NULL)
-		free(p);
-}
-/**
  * _realloc - concatenates 2 strings
  * @ptr: pointer to first stringmin number
  * @old_size: old size
@@ -37,21 +26,33 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (ptr == NULL)
 	{
 		p = malloc(new_size);
-		_free_ifnull(p);
-	}else if (new_size > old_size)
+		if (p == NULL)
+		{
+			free(p);
+			return (NULL);
+		}
+		return (p);
+	} else if (new_size > old_size)
 	{
 		p = malloc(new_size);
-		_free_ifnull(p);
+		if (p == NULL)
+		{
+			free(p);
+			return (NULL);
+		}
 		for (i = 0; i < old_size; i++)
 			p[i] = ptr2[i];
 	} else if (new_size < old_size)
 	{
 		p = malloc(new_size);
-		_free_ifnull(p);
+		if (p == NULL)
+		{
+			free(p);
+			return (NULL);
+		}
 		for (i = 0; i < new_size; i++)
 			p[i] = ptr2[i];
 	}
-
 	free(ptr);
 	return (p);
 }
