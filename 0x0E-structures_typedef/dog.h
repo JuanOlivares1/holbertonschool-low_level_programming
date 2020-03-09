@@ -3,8 +3,6 @@
 
 int _putchar(char c);
 
-#endif
-
 /**
  * struct dog - It's a dog, what can I say
  * @name: dog's name
@@ -19,3 +17,4 @@ struct dog
 	float age;
 	char *owner;
 };
+#endif
