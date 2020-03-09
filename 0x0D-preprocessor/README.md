@@ -1,0 +1,3 @@
+# 0x0D-preprocessor
+
+In this project I will learn about macros, what are they, how to use them, etc...
