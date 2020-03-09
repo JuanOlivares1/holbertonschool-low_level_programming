@@ -1,8 +1,6 @@
 #ifndef HOLBERTON
 #define HOLBERTON
 
-int _putchar(char c);
-
 /**
  * struct dog - It's a dog, what can I say
  * @name: dog's name
@@ -17,4 +15,8 @@ struct dog
 	float age;
 	char *owner;
 };
+
+int _putchar(char c);
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
 #endif
