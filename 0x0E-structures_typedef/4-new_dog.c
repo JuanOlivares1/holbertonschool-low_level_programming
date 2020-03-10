@@ -1,7 +1,9 @@
 #include "dog.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+
+char *_strdup(char *str);
+
 /**
  * new_dog - initializes a dog structure
  * @name: name aatribute
@@ -24,8 +26,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (owner == NULL)
 		return (NULL);
 
-	name_cp = strdup(name);
-	owner_cp = strdup(owner);
+	name_cp = _strdup(name);
+	owner_cp = _strdup(owner);
 
 	p = malloc(sizeof(dog_t));
 	if (p == NULL)
@@ -37,4 +39,35 @@ dog_t *new_dog(char *name, float age, char *owner)
 	p->age = age;
 	p->owner = owner;
 	return (p);
+}
+
+/**
+ * _strdup - copy a string and stores it on a newlly memory allocation
+ * @str: string to copy
+ *
+ * Return: pointer to array.
+ */
+char *_strdup(char *str)
+{
+        int i, size;
+        char *p;
+
+        if (str == NULL)
+                return (NULL);
+
+        for (i = 0; str[i]; i++)
+                ;
+
+        size = i;
+
+        p = malloc(size + 1);
+
+        if (p == NULL)
+                return (NULL);
+
+        for (i = 0; i < size; i++)
+        {
+                p[i] = str[i];
+        }
+        return (p);
 }
