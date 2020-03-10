@@ -1,7 +1,7 @@
 #include "dog.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <string.h>
 /**
  * new_dog - initializes a dog structure
  * @name: name aatribute
@@ -23,6 +23,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	if (owner == NULL)
 		return (NULL);
+
+	name_cp = strdup(name);
+	owner_cp = strdup(owner);
 
 	p = malloc(sizeof(dog_t));
 	if (p == NULL)
