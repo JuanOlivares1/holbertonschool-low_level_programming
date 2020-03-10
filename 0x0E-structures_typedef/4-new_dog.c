@@ -13,23 +13,39 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *p;
+
 	__attribute__((unused))char *name_cp;
 	__attribute__((unused))char *owner_cp;
 
 	if (name == NULL)
 		return (NULL);
-	else
-		name_cp = name;
 	if (age < 0)
 		return (NULL);
 	if (owner == NULL)
 		return (NULL);
-	else
-		owner_cp = owner;
+
+	name_cp = malloc(sizeof(name));
+	if (name_cp == NULL)
+        {
+                free(name_cp);
+                return (NULL);
+        }
+	owner_cp = malloc(sizeof(owner));
+	if (owner_cp == NULL)
+        {
+                free(owner_cp);
+                return (NULL);
+        }
+
+	name_cp = name;
+	owner_cp = owner;
 
 	p = malloc(sizeof(dog_t));
 	if (p == NULL)
+	{
+		free(p);
 		return (NULL);
+	}
 	p->name = name;
 	p->age = age;
 	p->owner = owner;
