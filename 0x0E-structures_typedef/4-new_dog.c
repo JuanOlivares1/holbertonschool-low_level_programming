@@ -15,9 +15,8 @@ char *_strdup(char *str);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *p;
-
-	__attribute__((unused))char *name_cp;
-	__attribute__((unused))char *owner_cp;
+	char *name_cp;
+        char *owner_cp;
 
 	if (name == NULL)
 		return (NULL);
@@ -73,8 +72,10 @@ char *_strdup(char *str)
 	p = malloc(size + 1);
 
 	if (p == NULL)
+	{
+		free(p);
 		return (NULL);
-
+	}
 	for (i = 0; i < size; i++)
 	{
 		p[i] = str[i];
