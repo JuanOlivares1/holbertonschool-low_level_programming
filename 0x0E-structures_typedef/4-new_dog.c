@@ -49,25 +49,25 @@ dog_t *new_dog(char *name, float age, char *owner)
  */
 char *_strdup(char *str)
 {
-        int i, size;
-        char *p;
+	int i, size;
+	char *p;
 
-        if (str == NULL)
-                return (NULL);
+	if (str == NULL)
+		return (NULL);
 
-        for (i = 0; str[i]; i++)
-                ;
+	for (i = 0; str[i]; i++)
+		;
 
-        size = i;
+	size = i;
 
-        p = malloc(size + 1);
+	p = malloc(size + 1);
 
-        if (p == NULL)
-                return (NULL);
+	if (p == NULL)
+		return (NULL);
 
-        for (i = 0; i < size; i++)
-        {
-                p[i] = str[i];
-        }
-        return (p);
+	for (i = 0; i < size; i++)
+	{
+		p[i] = str[i];
+	}
+	return (p);
 }
