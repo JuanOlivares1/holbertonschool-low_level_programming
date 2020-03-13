@@ -14,12 +14,8 @@ void print_all(const char * const format, ...)
 	if (format == NULL)
 		return;
 
-        
+	va_start(list, ?);
 
-	while ()
-	{
-		str = va_arg(list, char *);
-        }
 	printf("\n");
 	va_end(list);
 }
