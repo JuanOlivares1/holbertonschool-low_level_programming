@@ -3,7 +3,7 @@
 /**
  * print_numbers - print numbers
  * @n: number of args.
- * @sepaator: string with the separator of args
+ * @separator: string with the separator of args
  *
  * Return: void
  */
@@ -16,7 +16,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		return;
 
 	if (separator == NULL)
-                separator = "";
+		separator = "";
 
 	va_start(list, n);
 
@@ -25,7 +25,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		printf("%d", va_arg(list, int));
 		if (i < n - 1)
 			printf("%s", separator);
-        }
+	}
 	printf("\n");
 	va_end(list);
 }
