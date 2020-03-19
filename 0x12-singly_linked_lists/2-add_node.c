@@ -42,7 +42,7 @@ list_t *add_node(list_t **head, const char *str)
 	if (*head == NULL)
 		newHead->next = NULL;
 	else
-	        newHead->next = *head;
+		newHead->next = *head;
 	*head = newHead;
 	return (newHead);
 }
