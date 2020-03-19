@@ -3,9 +3,9 @@
 
 /**
  * print_list - prints all elements of a linked list
- * @h: pointer to lists' head
+ * @h: pointer to a list
  *
- * Return: number of nodes in size_t vartype
+ * Return: number of nodes
  */
 size_t print_list(const list_t *h)
 {
