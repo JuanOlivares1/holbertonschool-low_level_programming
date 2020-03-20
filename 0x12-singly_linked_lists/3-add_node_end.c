@@ -1,9 +1,8 @@
 #include <string.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * list_len - calculate the lenght of a linked list
+ * last_list - return the last node of a list
  * @h: pointer to a list
  *
  * Return: pointer to last node of list
