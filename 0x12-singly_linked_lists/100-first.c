@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * start - calculate the lenght of a linked list
+ * start - function that is excecuted before main
  *
  * Return: void
  */
