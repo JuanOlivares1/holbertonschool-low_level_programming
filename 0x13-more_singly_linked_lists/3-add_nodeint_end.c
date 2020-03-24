@@ -32,7 +32,7 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
 
 /**
- * add_nodeint_end - function that returns the last element of a list
+ * last_nodeint - function that returns the last element of a list
  * @head: pointer to the head
  *
  * Return: pointer to last element
