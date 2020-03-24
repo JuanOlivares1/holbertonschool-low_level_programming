@@ -16,9 +16,6 @@ void free_listint2(listint_t **head)
 	if (head2 == NULL)
 		return;
 
-	ptr = malloc(sizeof(listint_t));
-	if (ptr == NULL)
-		return;
 	ptr = head2->next;
 	free_listint2(&(ptr));
 	free(ptr);
