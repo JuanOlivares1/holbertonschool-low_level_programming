@@ -5,7 +5,7 @@
  * @head: pointer to the head
  * @index: index
  *
- * Return: sum of data
+ * Return: 1 if succes. -1 otherwise
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {

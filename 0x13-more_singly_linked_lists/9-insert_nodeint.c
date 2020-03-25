@@ -6,7 +6,7 @@
  * @idx: index
  * @n: new node's data
  *
- * Return: sum of data
+ * Return: pointer to new node
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
