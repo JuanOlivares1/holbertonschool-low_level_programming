@@ -1,10 +1,8 @@
 #include "holberton.h"
 
-void print_n(unsigned long int n);
-
 /**
  * get_bit - returns the value of a bit at a given index
- * @n: number to print
+ * @n: number
  * @index: index of bit to return
  *
  * Return: value of index
