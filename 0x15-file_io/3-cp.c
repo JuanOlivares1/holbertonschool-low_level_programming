@@ -57,6 +57,8 @@ int main(int ac, char **av)
  * write_file - function that cp a file.
  * @fdrd: fd for reading
  * @fdwr: fd for writing
+ * @f_from: name of file to copy from
+ * @f_to: name of file to paste to
  *
  * Return: 1 if success
  */
