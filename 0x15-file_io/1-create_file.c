@@ -15,14 +15,14 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	for (i = 0; text_content[i] && text_content; i++)
+	for (i = 0; text_content && text_content[i]; i++)
 		;
 
 	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (-1);
 
-	if (i != 0)
+	if (i > 0)
 		wr = write(fd, text_content, i);
 
 	if (wr == -1)
