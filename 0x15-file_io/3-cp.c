@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int write_file(int fdrd, int fdwr, char *f_from, char *f_to);
+void write_file(int fdrd, int fdwr, char *f_from, char *f_to);
 
 /**
  * main - copies a file into another
@@ -60,26 +60,28 @@ int main(int ac, char **av)
  * @f_from: name of file to copy from
  * @f_to: name of file to paste to
  *
- * Return: 1 if success
+ * Return: void
  */
-int write_file(int fdrd, int fdwr, char *f_from, char *f_to)
+void write_file(int fdrd, int fdwr, char *f_from, char *f_to)
 {
 	ssize_t wr, rd;
 	char buff[1024];
 
-	rd = read(fdrd, buff, 1024);
-	if (rd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
-		exit(98);
-	}
-
-	wr = write(fdwr, buff, 1024);
-	if (wr != rd)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
-		exit(99);
-	}
-
-	return (1);
+	do {
+		rd = read(fdrd, buff, 1024);
+		if (rd == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
+			exit(98);
+		}
+		if (rd)
+		{
+			wr = write(fdwr, buff, rd);
+			if (wr != rd)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
+				exit(99);
+			}
+		}
+	} while (rd);
 }
