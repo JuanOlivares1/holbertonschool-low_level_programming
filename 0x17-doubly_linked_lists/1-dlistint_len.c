@@ -2,7 +2,7 @@
 
 /**
  * dlistint_len - counts nodes in a doubly linked list
- * @h: lsit's head
+ * @h: lisit's head
  *
  * Return: number of nodes
  */
