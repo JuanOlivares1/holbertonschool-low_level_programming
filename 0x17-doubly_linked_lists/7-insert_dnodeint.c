@@ -13,8 +13,11 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new, *current, *temp;
 
-	if (h == NULL || (idx != 0 && *h == NULL))
-		return (NULL);
+	if (idx == 0)
+	{
+		new = add_dnodeint(h, n);
+		return (new);
+	}
 
 	current = get_dnodeint_at_index(*h, idx);
 	temp = current;
