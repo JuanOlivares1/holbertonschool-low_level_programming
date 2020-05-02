@@ -43,7 +43,7 @@ dlistint_t *last_dnodeint(dlistint_t *h)
 {
 	dlistint_t *last, *current = h;
 
-	while(current->next != NULL)
+	while (current->next != NULL)
 	{
 		current = current->next;
 	}
