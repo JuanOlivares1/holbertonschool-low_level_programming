@@ -1,4 +1,5 @@
 #include "lists.h"
+#include "5-get_dnodeint.c"
 
 /**
  * insert_dnodeint_at_index - adds nodes at index in a doubly linked list
@@ -22,28 +23,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		current->next = temp;
 		return (NULL);
 	}
+	temp->prev = new;
 	new->next = temp;
 	return (new);
-}
-
-/**
- * get_dnodeint_at_index - gets node from a doubly linked list at index
- * @head: lisit's head
- * @index: index
- *
- * Return: node at index
- */
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
-{
-	if (head == NULL)
-		return (NULL);
-
-	while (index != 0)
-	{
-		head = head->next;
-		index--;
-		if (head == NULL)
-			return (NULL);
-	}
-	return (head);
 }
