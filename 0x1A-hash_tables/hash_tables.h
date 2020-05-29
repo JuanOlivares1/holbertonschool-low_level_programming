@@ -2,6 +2,8 @@
 #define HASHTABLES
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
  * struct hash_node_s - Node of a hash table
@@ -31,10 +33,6 @@ typedef struct hash_table_s
 	unsigned long int size;
 	hash_node_t **array;
 } hash_table_t;
-
-/*list manipulation prototypes*/
-hash_node_t *add_node(hash_node_t **head, const char *key, const char *value);
-hash_node_t *keyValidator(hash_node_t *head, const char *key);
 
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
