@@ -11,14 +11,13 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *head, *temp, *kv;
-	unsigned char *index;
-	int i;
+	hash_node_t *head, *kv, *x;
+	unsigned long int index;
 
-	if (ht == NULL || ht->array == NULL || key = NULL)
-		return(0);
+	if (ht == NULL || ht->array == NULL || key == NULL)
+		return (0);
 
-	index = key_index((unsigned char *)key);
+	index = key_index((unsigned char *)key, ht->size);
 
 	if (ht->array[index] != NULL)
 	{
@@ -28,25 +27,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			free(kv->value);
 			kv->value = strdup(value);
 			if (kv->value == NULL)
-				return(0);
-			return(1);
+				return (0);
+			return (1);
 		}
 		x = add_node(&(ht->array[index]), key, value);
 		if (x == NULL)
-			return(0);
-		return(1)
+			return (0);
+		return (1);
 	}
 
         head = malloc(sizeof(hash_node_t));
-        if (head = NULL)
-                return(0);
+        if (head == NULL)
+                return (0);
 
 	x = add_node(&head, key, value);
 	if (x == NULL)
-		return(0);
+		return (0);
 
 	ht->array[index] = head;
-	return(1);
+	return (1);
 }
 
 /**
@@ -72,7 +71,7 @@ hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
                 return (NULL);
         }
 
-	dupvalue = strdup(key);
+	dupvalue = strdup(value);
         if (dupvalue == NULL)
         {
 		free(dupkey);
@@ -96,18 +95,15 @@ hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
  * @head: list head
  * @key: key
  *
- * Return: NodeIndex, -1 otherwise
+ * Return: Node on success, NUll on fail
  */
-int keyValidator(hash_node_t *head, const char *key)
+hash_node_t *keyValidator(hash_node_t *head, const char *key)
 {
-	int rtn = 0;
-
 	while(head != NULL)
 	{
 		if (strcmp(head->key, key) == 0)
-			return(rtn);
+			return (head);
 		head = head->next;
-		rtn++;
 	}
-	retrun(-1);
+	return (NULL);
 }

@@ -34,6 +34,7 @@ typedef struct hash_table_s
 
 /*list manipulation prototypes*/
 hash_node_t *add_node(hash_node_t **head, const char *key, const char *value);
+hash_node_t *keyValidator(hash_node_t *head, const char *key);
 
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
