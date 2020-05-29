@@ -20,7 +20,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	head = ht->array[index];
 
-	if (head == NULL && strcmp(idx_node->key, key) > 0)
+	if (head != NULL && strcmp(head->key, key) > 0)
 	{
 		free(head->value);
 		head->value = strdup(value);
