@@ -1,4 +1,3 @@
-#include "hash_tables.h"
 /**
  * hash_djb2 - hash function
  * @str: key to hash
