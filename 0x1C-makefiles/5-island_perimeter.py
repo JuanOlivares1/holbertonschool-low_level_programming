@@ -11,16 +11,16 @@ def island_perimeter(grid):
     perimeter = 0
 
     if type(grid) not in [list]:
-        return perimeter
+        return
 
     if type(grid[0]) not in [list]:
-        return perimeter
+        return
 
     if type(grid[0][0]) not in [int]:
-        return perimeter
+        return
 
     if len(grid) > 100 or len(grid[0]) > 100:
-        return perimeter
+        return
 
     for i in range(len(grid) - 1):
         for j in range(len(grid[i]) - 1):
