@@ -16,13 +16,13 @@ int binary_search(int *array, size_t size, int value)
 	if ((array == NULL) || (size == 1 && array[0] != value))
 		return (-1);
 
-	// finding mid pointer of array and defining new array size
-        if (size % 2 == 0)
+	/* finding mid pointer of array and defining new array size */
+	if (size % 2 == 0)
 		mid = (size / 2) - 1;
 	else
 		mid = (size / 2);
 
-	// printing current array
+	/* printing current array */
 	printf("Searching in array: ");
 	for (i = 0; i < size; i++)
 	{
@@ -34,7 +34,7 @@ int binary_search(int *array, size_t size, int value)
 	}
 	printf("\n");
 
-	// recursively finding index of value
+	/* recursively finding index of value */
 	if (array[mid] == value)
 		return (mid);
 	else if (array[mid] > value)
