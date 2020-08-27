@@ -12,8 +12,9 @@
 int binary_search(int *array, size_t size, int value)
 {
 	size_t i, newsize = 0,  mid;
+	int index = -1;
 
-	if ((array == NULL) || (size == 1 && array[0] != value))
+	if (array == NULL)
 		return (-1);
 
 	/* finding mid pointer of array and defining new array size */
@@ -34,13 +35,31 @@ int binary_search(int *array, size_t size, int value)
 	}
 	printf("\n");
 
+	if (size == 1 && array[0] != value)
+		return (-1);
+
 	/* recursively finding index of value */
 	if (array[mid] == value)
-		return (mid);
-	else if (array[mid] > value)
-		return (binary_search(array, newsize, value));
-	else if (array[mid] < value)
-		return (binary_search(&array[mid] + 1, newsize, value));
-
+	{
+		index = mid;
+		if (index == -1)
+			return (-1);
+		else
+			return (index);
+	} else if (array[mid] > value)
+	{
+		index = binary_search(array, newsize, value);
+		if (index == -1)
+			return (-1);
+		else
+			return (mid - index);
+	} else if (array[mid] < value)
+	{
+		index  = binary_search(&array[mid] + 1, newsize, value);
+		if (index == -1)
+                        return (-1);
+                else
+			return (mid + index);
+	}
 	return (-1);
 }
