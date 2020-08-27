@@ -1,5 +1,7 @@
 #include "search_algos.h"
 
+size_t printarray(int *array, size_t size, size_t *newsize);
+
 /**
  * binary_search - searches for a value in a sorted array of integers
  * using the Binary search algorithm
@@ -11,11 +13,48 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t i, newsize = 0,  mid;
+	size_t newsize = 0,  mid;
 	int index = -1;
 
-	if (array == NULL)
+	mid = printarray(array, size, &newsize);
+
+	if ((array == NULL) || (size == 1 && array[0] != value))
 		return (-1);
+
+	/* recursively finding index of value */
+	if (array[mid] == value)
+	{
+		index = mid;
+		if (index == -1)
+			return (-1);
+		return (index);
+	} else if (array[mid] > value)
+	{
+		index = binary_search(array, newsize, value);
+		if (index == -1)
+			return (-1);
+		return (mid - index);
+	} else if (array[mid] < value)
+	{
+		index  = binary_search(&array[mid] + 1, newsize, value);
+		if (index == -1)
+			return (-1);
+		return (mid + index);
+	}
+	return (-1);
+}
+
+/**
+ * printarray - prints an array
+ * @array: array
+ * @size: array lenght
+ * @newsize: subarray lenght
+ *
+ * Return: index of middle
+ */
+size_t printarray(int *array, size_t size, size_t *newsize)
+{
+	size_t i, mid;
 
 	/* finding mid pointer of array and defining new array size */
 	if (size % 2 == 0)
@@ -31,35 +70,9 @@ int binary_search(int *array, size_t size, int value)
 		if (i != size - 1)
 			printf(", ");
 		if (i > mid)
-			newsize++;
+			newsize[0] = newsize[0] + 1;
 	}
 	printf("\n");
 
-	if (size == 1 && array[0] != value)
-		return (-1);
-
-	/* recursively finding index of value */
-	if (array[mid] == value)
-	{
-		index = mid;
-		if (index == -1)
-			return (-1);
-		else
-			return (index);
-	} else if (array[mid] > value)
-	{
-		index = binary_search(array, newsize, value);
-		if (index == -1)
-			return (-1);
-		else
-			return (mid - index);
-	} else if (array[mid] < value)
-	{
-		index  = binary_search(&array[mid] + 1, newsize, value);
-		if (index == -1)
-                        return (-1);
-                else
-			return (mid + index);
-	}
-	return (-1);
+	return (mid);
 }
