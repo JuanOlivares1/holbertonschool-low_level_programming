@@ -1,7 +1,5 @@
 #include "search_algos.h"
 
-size_t printarray(int *array, size_t size, size_t *newsize);
-
 /**
  * binary_search - searches for a value in a sorted array of integers
  * using the Binary search algorithm
@@ -13,66 +11,36 @@ size_t printarray(int *array, size_t size, size_t *newsize);
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t newsize = 0,  mid;
-	int index = -1;
+	size_t first_idx = 0, last_idx = size - 1, mid = 0, i;
 
-	mid = printarray(array, size, &newsize);
-
-	if ((array == NULL) || (size == 1 && array[0] != value))
+	if (array == NULL || size == 0)
 		return (-1);
 
-	/* recursively finding index of value */
-	if (array[mid] == value)
+	while (first_idx <= last_idx)
 	{
-		index = mid;
-		if (index == -1)
-			return (-1);
-		return (index);
-	} else if (array[mid] > value)
-	{
-		index = binary_search(array, newsize, value);
-		if (index == -1)
-			return (-1);
-		return (mid - index);
-	} else if (array[mid] < value)
-	{
-		index  = binary_search(&array[mid] + 1, newsize, value);
-		if (index == -1)
-			return (-1);
-		return (mid + index);
+		mid = (first_idx + last_idx) / 2;
+
+		printf("Searching in array: ");
+		for (i = first_idx; i <= last_idx; i++)
+		{
+			if (i == last_idx)
+			{
+				printf("%i\n", array[i]);
+				break;
+			}
+			printf("%i, ", array[i]);
+		}
+
+		if (array[mid] == value)
+			return (mid);
+		else if (value > array[mid])
+			first_idx = mid + 1;
+		else if (value < array[mid])
+		{
+			if (mid == 0)
+				return (-1);
+			last_idx = mid - 1;
+		}
 	}
 	return (-1);
-}
-
-/**
- * printarray - prints an array
- * @array: array
- * @size: array lenght
- * @newsize: subarray lenght
- *
- * Return: index of middle
- */
-size_t printarray(int *array, size_t size, size_t *newsize)
-{
-	size_t i, mid;
-
-	/* finding mid pointer of array and defining new array size */
-	if (size % 2 == 0)
-		mid = (size / 2) - 1;
-	else
-		mid = (size / 2);
-
-	/* printing current array */
-	printf("Searching in array: ");
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i != size - 1)
-			printf(", ");
-		if (i > mid)
-			newsize[0] = newsize[0] + 1;
-	}
-	printf("\n");
-
-	return (mid);
 }
